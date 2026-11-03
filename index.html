@@ -24,7 +24,7 @@ const GT=glowTex();
 /* twilight backdrop */
 const bg=new THREE.Mesh(new THREE.SphereGeometry(4000,32,16),new THREE.ShaderMaterial({side:THREE.BackSide,depthWrite:false,
 vertexShader:'varying vec3 v;void main(){v=normalize(position);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-fragmentShader:'varying vec3 v;void main(){float h=v.y*.5+.5;vec3 c=mix(vec3(.13,.05,.24),vec3(.02,.015,.07),smoothstep(.25,.9,h));c+=vec3(.3,.07,.34)*exp(-abs(v.y+.05)*7.)*.7;c+=vec3(0.,.035,.055)*pow(max(v.x,0.),4.)*.4;gl_FragColor=vec4(c,1.);}'}));
+fragmentShader:'varying vec3 v;void main(){float h=v.y*.5+.5;vec3 c=mix(vec3(.13,.05,.20)*0.5,vec3(.02,.015,.07),smoothstep(.25,.9,h));c+=vec3(.3,.07,.34)*exp(-abs(v.y+.05)*7.)*.7;c+=vec3(0.,.035,.055)*pow(max(v.x,0.),4.)*.4;gl_FragColor=vec4(c,1.);}'}));
 bg.renderOrder=-10;scene.add(bg);
 
 /* starfields + dust (parallax layers) */
